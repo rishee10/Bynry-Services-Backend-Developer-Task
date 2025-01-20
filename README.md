@@ -20,7 +20,18 @@ Django
 HTML/CSS for front-end
 
 # ALL URLS
-git clone 
+
+
+
+```
+git clone https://github.com/rishee10/Bynry-Services-Backend-Developer-Task.git
+
+```
+
+
+
+
+
 python manage.py runserver
  
 Run-Server then
