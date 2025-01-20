@@ -33,10 +33,7 @@ cd Bynry-Services-Backend-Developer-Task
 
 ```
 
-```
-pip install -r requirements.txt
 
-```
 
 
 
