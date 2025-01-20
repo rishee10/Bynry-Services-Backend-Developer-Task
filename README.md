@@ -12,7 +12,7 @@ Request Tracking: Customers can track the status of their service requests, see 
 
 Customer Support Representative Dashboard: Customer support representatives can view, update, and resolve service requests.
 
-# Technologies Used
+# Technologies Used/ Requirements
 Python 
 
 Django 
@@ -20,7 +20,7 @@ Django
 HTML/CSS for front-end
 
 # ALL URLS
-
+git clone 
 python manage.py runserver
  
 Run-Server then
