@@ -29,7 +29,7 @@ git clone https://github.com/rishee10/Bynry-Services-Backend-Developer-Task.git
 ```
 
 ```
-Bynry-Services-Backend-Developer-Task
+cd Bynry-Services-Backend-Developer-Task
 
 ```
 
