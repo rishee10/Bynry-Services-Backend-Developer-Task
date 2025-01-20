@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Requests</title>
+    <style>
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        
+        .requests-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        
+        .request-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #f9f9f9;
+        }
+
+        
+        .request-card p {
+            margin: 8px 0;
+            color: #333333;
+            font-size: 14px;
+        }
+
+        
+        .request-card form {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        
+        form input[type="hidden"] {
+            display: none;
+        }
+
+        
+        form select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-size: 14px;
+            background-color: #ffffff;
+            flex-grow: 1;
+        }
+
+        
+        form button {
+            padding: 8px 15px;
+            border: none;
+            background-color: #007bff;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #333333;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="requests-container">
+        <div class="header">
+            <h1>Manage Requests</h1>
+        </div>
+        {% for request in requests %}
+        <div class="request-card">
+            <p><strong>Request ID:</strong> {{ request.id }}</p>
+            <p><strong>Customer:</strong> {{ request.customer.username }}</p>
+            <p><strong>Type:</strong> {{ request.type_of_service }}</p>
+            <p><strong>Status:</strong> {{ request.status }}</p>
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="request_id" value="{{ request.id }}">
+                <select name="status">
+                    <option value="Pending" {% if request.status == 'Pending' %}selected{% endif %}>Pending</option>
+                    <option value="In Progress" {% if request.status == 'In Progress' %}selected{% endif %}>In Progress</option>
+                    <option value="Resolved" {% if request.status == 'Resolved' %}selected{% endif %}>Resolved</option>
+                </select>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
